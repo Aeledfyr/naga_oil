@@ -222,7 +222,7 @@ impl ModuleKey {
 }
 
 // a module built with a specific set of shader_defs
-#[derive(Default, Debug)]
+#[derive(Default, Debug, Clone)]
 pub struct ComposableModule {
     // module decoration, prefixed to all items from this module in the final source
     pub decorated_name: String,
@@ -253,7 +253,7 @@ pub struct ComposableModule {
 }
 
 // data used to build a ComposableModule
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct ComposableModuleDefinition {
     pub name: String,
     // shader text (with auto bindings replaced - we do this on module add as we only want to do it once to avoid burning slots)
@@ -315,7 +315,7 @@ pub struct ImportDefWithOffset {
 /// module composer.
 /// stores any modules that can be imported into a shader
 /// and builds the final shader
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Composer {
     pub validate: bool,
     pub module_sets: HashMap<String, ComposableModuleDefinition>,
