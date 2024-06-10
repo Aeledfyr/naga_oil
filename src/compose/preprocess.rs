@@ -9,7 +9,7 @@ use super::{
     ComposerErrorInner, ImportDefWithOffset, ShaderDefValue,
 };
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Preprocessor {
     version_regex: Regex,
     ifdef_regex: Regex,
